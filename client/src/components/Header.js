@@ -15,8 +15,10 @@ export const Header = () => {
 
     const searchHandler = async (event) => {
         event.preventDefault()
-        const data = await request('/byName', 'POST', {value})
+        
+        const data = await request('/byName', 'POST', {value: value.trim()})
         stocksContext.fetchedStocks(data)
+
         setValue('')
     }
     
